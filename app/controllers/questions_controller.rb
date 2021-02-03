@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question
   end
 
   def update
