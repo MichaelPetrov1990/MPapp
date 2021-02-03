@@ -3,3 +3,4 @@ class AddQuestion3ToQuestionnaires < ActiveRecord::Migration[6.0]
     add_column :questionnaires, :question3, :text
   end
 end
+

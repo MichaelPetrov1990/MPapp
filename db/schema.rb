@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_162609) do
+ActiveRecord::Schema.define(version: 2021_02_03_150701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "type"
+    t.string "current_capability"
+    t.bigint "areas_of_interest_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["areas_of_interest_id"], name: "index_activities_on_areas_of_interest_id"
+  end
+
+  create_table "areas_of_interests", force: :cascade do |t|
+    t.string "area1"
+    t.string "area2"
+    t.string "area3"
+    t.bigint "questionnaire_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["questionnaire_id"], name: "index_areas_of_interests_on_questionnaire_id"
+  end
 
   create_table "plans", force: :cascade do |t|
     t.string "top_priorities"
@@ -28,19 +47,15 @@ ActiveRecord::Schema.define(version: 2021_01_28_162609) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "question1"
-    t.text "question2"
-    t.text "question3"
   end
 
-  create_table "scorecards", force: :cascade do |t|
-    t.text "answers"
-    t.integer "score"
-    t.string "red_flags"
-    t.bigint "user_id", null: false
+  create_table "questions", force: :cascade do |t|
+    t.text "body"
+    t.integer "answer"
+    t.bigint "questionnaire_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_scorecards_on_user_id"
+    t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +70,8 @@ ActiveRecord::Schema.define(version: 2021_01_28_162609) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "areas_of_interests"
+  add_foreign_key "areas_of_interests", "questionnaires"
   add_foreign_key "plans", "users"
-  add_foreign_key "scorecards", "users"
+  add_foreign_key "questions", "questionnaires"
 end
