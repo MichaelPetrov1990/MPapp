@@ -1,0 +1,2 @@
+class AreasOfInterestController < ApplicationController
+end
