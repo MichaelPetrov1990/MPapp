@@ -4,17 +4,20 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
- def show
-  @question = Question.find(params[:id])
+  def show
+    
   end
 
   def new
-    @question = Question.new
+    # @questionnaire = Questionnaire.find(params[:questionnaire_id])
+    # @question = Question.new
   end
 
   def create
-    @questionnaire = Questionnaire.find(params[:id])
     @question = Question.new(strong_params)
+    @questionnaire = Questionnaire.find(params[:questionnaire_id])
+    @question.questionnaire = @questionnaire
+    @question.save!
     # CREATING OUR QUESTION THAT IS ASSOCIATED TO A QUESTIONNAIRE
   end
 
