@@ -1,5 +1,10 @@
 class QuestionnairesController < ApplicationController
   before_action :set_questionnaire, only: [:show, :edit, :update, :destroy]
+  
+  def index
+    @questionnaires = Question.all
+  end
+  
   def show
   end
 

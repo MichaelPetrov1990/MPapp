@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'faqs', to: 'pages#faqs'
-  resources :questionnaire, only: [:show, :new, :create, :edit, :update, :destroy] do
-  resources :question
+  resources :questionnaire do
+    resources :question do
+      resources :answer
+    end
   end
 
   resources :plan, only: [:show, :new, :create, :edit, :update]
