@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_150701) do
+ActiveRecord::Schema.define(version: 2021_02_05_162729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_02_03_150701) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["areas_of_interest_id"], name: "index_activities_on_areas_of_interest_id"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "areas_of_interests", force: :cascade do |t|
@@ -51,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_02_03_150701) do
 
   create_table "questions", force: :cascade do |t|
     t.text "body"
-    t.integer "answer"
     t.bigint "questionnaire_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_150701) do
   end
 
   add_foreign_key "activities", "areas_of_interests"
+  add_foreign_key "answers", "questions"
   add_foreign_key "areas_of_interests", "questionnaires"
   add_foreign_key "plans", "users"
   add_foreign_key "questions", "questionnaires"
