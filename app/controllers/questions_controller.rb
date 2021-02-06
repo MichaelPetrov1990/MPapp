@@ -9,8 +9,8 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    # @questionnaire = Questionnaire.find(params[:questionnaire_id])
-    # @question = Question.new
+    @questionnaire = Questionnaire.find(params[:questionnaire_id])
+    @question = Question.new
   end
 
   def create
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question
+    
   end
 
   def update
