@@ -9,7 +9,8 @@ class QuestionnairesController < ApplicationController
   end
 
   def new
-    @questionnaire = Questionnaire.new
+    @questionnaires = Questionnaire.all
+    
   end
 
   def create
