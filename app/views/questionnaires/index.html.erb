@@ -1,5 +1,7 @@
 <% @questionnaires.each do |questionnaire| %>
-  <p>
-    <%= questionnaire.question %>
-  </p>
+  <% questionnaire.questions.each do |question| %>
+  <p><%= question.body %></p>
   <% end %>
+<% end %> 
+ 
+ <%= Questionnaire.find(4).questions.first.body %>
