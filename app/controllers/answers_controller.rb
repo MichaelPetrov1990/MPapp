@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def new
-    @question = Question.find(parms[question_id])
+    @questionnaire = Questionnaire.find(params[:questionnaire_id])
+    @question = Question.find(params[question_id])
     @answer = Answer.new
   end
   def create

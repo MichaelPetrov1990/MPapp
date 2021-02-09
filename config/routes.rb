@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   get 'faqs', to: 'pages#faqs'
   resources :questionnaires do
     resources :questions do
-      resources :answers
+      resources :answers 
     end
   end
+  #get	'/questions/:question_id/answers/new',	to: 'answers#new' 
+  #resources :answers, only: [ :new, :create ]
+    
+
 
   resources :plan, only: [:show, :new, :create, :edit, :update]
 
