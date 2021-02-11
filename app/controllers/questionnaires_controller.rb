@@ -1,7 +1,14 @@
 class QuestionnairesController < ApplicationController
     
   def new
+    binding.pry
+    # running params
     @questionnaire = Questionnaire.new(user: current_user)
+    # todo: add category to this method by grabbing the users category choice from the params hash
+    # eg @questionnaire = Questionnaire.create!(category: "Health", user: user)
+  end
+
+  def show
   end
 
   # def create
