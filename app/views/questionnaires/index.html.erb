@@ -1,6 +1,0 @@
-<% @questionnaires.each do |questionnaire| %>
-  <% questionnaire.questions.each_with_index do |question, index| %>
-  <p class="my-2 ml-5">Question   <%= index+1 %></p>
-  <p class="ml-5"><%= question.body %></p>
-  <% end %>
-<% end %> 

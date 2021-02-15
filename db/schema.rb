@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_102517) do
+ActiveRecord::Schema.define(version: 2021_02_05_162729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,28 +18,18 @@ ActiveRecord::Schema.define(version: 2021_02_11_102517) do
   create_table "activities", force: :cascade do |t|
     t.string "type"
     t.string "current_capability"
-    t.bigint "areas_of_interest_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["areas_of_interest_id"], name: "index_activities_on_areas_of_interest_id"
   end
 
   create_table "answers", force: :cascade do |t|
     t.integer "rating"
     t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "areas_of_interests", force: :cascade do |t|
-    t.string "area1"
-    t.string "area2"
-    t.string "area3"
-    t.bigint "questionnaire_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["questionnaire_id"], name: "index_areas_of_interests_on_questionnaire_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -53,12 +43,15 @@ ActiveRecord::Schema.define(version: 2021_02_11_102517) do
 
   create_table "questionnaires", force: :cascade do |t|
     t.string "category"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_questionnaires_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.text "body"
+    t.integer "answer"
     t.bigint "questionnaire_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -73,16 +66,13 @@ ActiveRecord::Schema.define(version: 2021_02_11_102517) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "questionnaire_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["questionnaire_id"], name: "index_users_on_questionnaire_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "activities", "areas_of_interests"
   add_foreign_key "answers", "questions"
-  add_foreign_key "areas_of_interests", "questionnaires"
+  add_foreign_key "answers", "users"
   add_foreign_key "plans", "users"
+  add_foreign_key "questionnaires", "users"
   add_foreign_key "questions", "questionnaires"
-  add_foreign_key "users", "questionnaires"
 end
