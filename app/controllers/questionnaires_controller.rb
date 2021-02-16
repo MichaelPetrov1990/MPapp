@@ -1,7 +1,9 @@
 class QuestionnairesController < ApplicationController
-    
+  def index
+    @questionnaires = Questionnaire.all
+  end  
   def new
-    binding.pry
+    #binding.pry
     # running params
     @questionnaire = Questionnaire.new(user: current_user)
     # todo: add category to this method by grabbing the users category choice from the params hash

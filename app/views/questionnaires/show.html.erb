@@ -1,9 +1,10 @@
-<h1>New Questionnaire for <%= current_user.email %>
-</h1>
-<p>TODO:</p>
-<h2><%= @questionnaire.category %></h2>
-<!-- <p>form for category starts here</p> -->
-<h3>choose from a category below</h3>
-<p> dropdown menu consisting of 3 categories</p>
-<p>submit_tag goes here, questionnaire_path, method: POST</p>
-<!-- <p>form for category ends here</p> -->
+<h1>Hi <%= current_user.email %></h1>
+<br>
+<h2>Please answer some questions on <%= @questionnaire.category %></h2>
+<h3>Rate them from 1 - 10</h3>
+
+
+<p><%= @questionnaire.questions.first.body %></p>
+<p><%= @questionnaire.questions.second.body %></p>
+<p><%= @questionnaire.questions.third.body %></p>
+<%= link_to 'Categories', all_questionnaires_path, class:"btn btn-primary" %>
