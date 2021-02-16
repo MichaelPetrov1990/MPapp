@@ -1,0 +1,4 @@
+Choose your category
+<% @questionnaires.each do |questionnaire| %>
+<%= link_to questionnaire.category, questionnaire_path(questionnaire), class:"btn btn-secondary btn-lg btn-block" %>
+<% end %>
