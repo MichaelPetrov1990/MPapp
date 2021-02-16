@@ -6,6 +6,11 @@
 <h2 class="text-danger">We need to direct this to the answer#new(create) somehow</h2>
 
 <p><%= @questionnaire.questions.first.body %></p>
+<%= simple_form_for [@questionnaire] do |f| %>
+  <%= f.input :rating, :collection => [1, 2, 3, 4, 5, 6, 7] %>
+  <%= f.button :submit, 'Submit', class:"btn btn-sm btn-primary" %>
+<% end %>
+
 <p><%= @questionnaire.questions.second.body %></p>
 <p><%= @questionnaire.questions.third.body %></p>
 <%= link_to 'Categories', all_questionnaires_path, class:"btn btn-primary" %>
