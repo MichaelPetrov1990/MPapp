@@ -3,25 +3,20 @@
 
 User.destroy_all
 Questionnaire.destroy_all
+Question.destroy_all
 
 tarun = User.create! email: "tarun@gmail.com", password: "hello123"
 michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123"
 priya = User.create! email: "priya.biring@gmail.com", password: "hello123"
 
-[tarun,michael,priya].each do |user|
-  questionnaire1 = Questionnaire.create!(category: "Health", user: user)
-  question1 = questionnaire1.questions.create(body: "From 1 to 10, please rate your fitness")
-  question2 = questionnaire1.questions.create(body: "Again please rate your physical health")
-  question3 = questionnaire1.questions.create(body: "Rate your nutrition")
+  health_question1 = Question.create(body: "From 1 to 10, please rate your fitness", category: "heath")
+  health_question2 = Question.create(body: "Again please rate your physical health", category: "heath")
+  health_question3 = Question.create(body: "Rate your nutrition", category: "heath")
 
-  questionnaire2 = Questionnaire.create(category: "Wealth", user: user)
-  question1 = questionnaire2.questions.create(body: "From 1 to 10, please rate your financial fitness")
-  question2 = questionnaire2.questions.create(body: "Again please rate your financial health")
-  question3 = questionnaire2.questions.create(body: "Rate your financial nutrition")
+  wealth_question1 = Question.create(body: "From 1 to 10, please rate your financial fitness", category: "weath")
+  wealth_question2 = Question.create(body: "Again please rate your financial health", category: "weath")
+  wealth_question3 = Question.create(body: "Rate your financial nutrition", category: "weath")
 
-  questionnaire3 = Questionnaire.create(category: "Happiness", user: user)
-  question1 = questionnaire3.questions.create(body: "From 1 to 10, please rate your happy fitness")
-  question2 = questionnaire3.questions.create(body: "Again please rate your happy health")
-  question3 = questionnaire3.questions.create(body: "Rate your happy nutrition")
-
-end
+  happiness_question1 = Question.create(body: "From 1 to 10, please rate your happy fitness", category: "happiness")
+  happiness_question2 = Question.create(body: "Again please rate your happy health", category: "happiness")
+  happiness_question3 = Question.create(body: "Rate your happy nutrition", category: "happiness")
