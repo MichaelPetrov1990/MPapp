@@ -1,10 +1,10 @@
 class QuestionnairesController < ApplicationController
   def index
-    @questionnaires = Questionnaire.all
-  end  
+    @questionnaire_category_options = ["Health", "Wealth","Happiness"]
+  end
+
   def new
-    #binding.pry
-    # running params
+    # binding.pry
     @questionnaire = Questionnaire.new(user: current_user)
     # todo: add category to this method by grabbing the users category choice from the params hash
     # eg @questionnaire = Questionnaire.create!(category: "Health", user: user)
@@ -23,5 +23,11 @@ class QuestionnairesController < ApplicationController
   #     render 'new'
   #   end
   # end
+
+  private
+
+  def category_params
+    params.permit(:category)
+  end
 
 end
