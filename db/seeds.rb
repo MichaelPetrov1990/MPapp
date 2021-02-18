@@ -2,8 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 User.destroy_all
-# Questionnaire.destroy_all
-
+Questionnaire.destroy_all
 
 tarun = User.create! email: "tarun@gmail.com", password: "hello123"
 michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123"
