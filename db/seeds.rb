@@ -9,14 +9,14 @@ tarun = User.create! email: "tarun@gmail.com", password: "hello123"
 michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123"
 priya = User.create! email: "priya.biring@gmail.com", password: "hello123"
 
-  health_question1 = Question.create(body: "From 1 to 10, please rate your fitness", category: "heath")
-  health_question2 = Question.create(body: "Again please rate your physical health", category: "heath")
-  health_question3 = Question.create(body: "Rate your nutrition", category: "heath")
+  health_question1 = Question.create!(body: "From 1 to 10, please rate your fitness", category: "health")
+  health_question2 = Question.create!(body: "Again please rate your physical health", category: "health")
+  health_question3 = Question.create!(body: "Rate your nutrition", category: "health")
 
-  wealth_question1 = Question.create(body: "From 1 to 10, please rate your financial fitness", category: "weath")
-  wealth_question2 = Question.create(body: "Again please rate your financial health", category: "weath")
-  wealth_question3 = Question.create(body: "Rate your financial nutrition", category: "weath")
-
-  happiness_question1 = Question.create(body: "From 1 to 10, please rate your happy fitness", category: "happiness")
-  happiness_question2 = Question.create(body: "Again please rate your happy health", category: "happiness")
-  happiness_question3 = Question.create(body: "Rate your happy nutrition", category: "happiness")
+  wealth_question1 = Question.create!(body: "From 1 to 10, please rate your financial fitness", category: "wealth")
+  wealth_question2 = Question.create!(body: "Again please rate your financial health", category: "wealth")
+  wealth_question3 = Question.create!(body: "Rate your financial nutrition", category: "wealth")
+ 
+  happiness_question1 = Question.create!(body: "From 1 to 10, please rate your happy fitness", category: "happiness")
+  happiness_question2 = Question.create!(body: "Again please rate your happy health", category: "happiness")
+  happiness_question3 = Question.create!(body: "Rate your happy nutrition", category: "happiness")
