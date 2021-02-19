@@ -1,13 +1,15 @@
 class QuestionnairesController < ApplicationController
   def index
-    @questionnaire_category_options = ["Health", "Wealth","Happiness"]
+    @questionnaire_category_options = ["health", "wealth","happiness"]
   end
 
   def new
+    @questionnaire = Questionnaire.create!(category: category_params[:category], user: current_user)
+    @questions = Question.where(category: category_params[:category]).sample(3)
+    @questionnaire.questions << @questions
+    @answer = Answer.new
+    # @questionnaire.save
     # binding.pry
-    @questionnaire = Questionnaire.new(user: current_user)
-    # todo: add category to this method by grabbing the users category choice from the params hash
-    # eg @questionnaire = Questionnaire.create!(category: "Health", user: user)
   end
 
   def show

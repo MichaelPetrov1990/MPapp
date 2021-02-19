@@ -1,7 +1,4 @@
-Hello
-
-
-<%#= simple_form_for [ @question, @answer ] do |f| %>
-  <%#= f.input :rating, collection: 1..10 %>
-  <%#= f.submit "Submit answer", class: "btn btn-primary" %>
-<%# end %>
+<%= simple_form_for @questions do |f| %>
+  <%= f.body %>
+  <%= f.submit "Submit answer", class: "btn btn-primary" %>
+<% end %>

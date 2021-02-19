@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2021_02_05_162729) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body"
-    t.text "category"
-    t.bigint "questionnaire_id", null: false
+    t.text "body", null: false
+    t.text "category", null: false
+    t.bigint "questionnaire_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"

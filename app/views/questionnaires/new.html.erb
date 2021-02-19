@@ -1,18 +1,11 @@
 <h1>New Questionnaire for <%= current_user.email %></h1>
-<p>TODO:</p>
 
-<p>form for questionnaire starts here</p>
-<p>question 1</p>
-<p>answer field for question 1</q></p>
-
-<p>question 2</p>
-<p>answer field for question 2</q></p>
-
-<p>question 3</p>
-<p>answer field for question 3</q></p>
-
-
-<p>submit_tag goes here</p>
-<p>form for questionnaire ends here</p>
-
-
+<%= form_for @questionnaire, url: new_questionnaire_path(id: @questionnaire.id), method: "post" do | f| %>
+  <%= simple_fields_for :answers, multiple: true do |form| %>
+    <% @questions.each_with_index do |question, index| %>
+      <p>Question<%= index+1 %>:  <%= question.body %></p>
+      <%= form.input_field "#{question.id}", collection: 1..10 %>
+    <% end %>
+    <%= f.submit "OK" %>
+  <% end %>
+<% end %>
