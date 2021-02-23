@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'questionnaires', to: 'questionnaires#index', as: "questionnaire_categories"
   get 'questionnaire/:category', to: 'questionnaires#new', as: "new_questionnaire"
-  post 'questionnaire/:id', to: 'questionnaires#create'
+  post 'questionnaire/:id', to: 'answers#create'
   # get 'questionnaire/:id', to: 'questionnaires#show', as: 'questionnaire'
   
 
