@@ -5,8 +5,8 @@ class QuestionnairesController < ApplicationController
 
   def new
     @questionnaire = Questionnaire.create!(category: category_params[:category], user: current_user)
-    @questions = Question.where(category: category_params[:category]).sample(3)
-    @questionnaire.questions << @questions
+    questions = Question.generate_three_questions(category_params[:category])
+    @questionnaire.questions << questions
   end
 
   def show

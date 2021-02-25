@@ -3,7 +3,7 @@
 <%= form_for @questionnaire, url: new_questionnaire_path(category: @questionnaire.id), method: "post" do | f| %>
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
-    <% @questions.each_with_index do |question, index| %>
+    <% @questionnaire.questions.each_with_index do |question, index| %>
       <p>Question<%= index+1 %>:  <%= question.body %></p>
       <%= form.input_field "#{question.id}", collection: 1..10 %>
     <% end %>
