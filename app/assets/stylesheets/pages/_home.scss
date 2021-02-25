@@ -1,8 +1,23 @@
 // Specific CSS for your home-page
-.hello {
-  color: red;
+.home_text {
+  color: rgb(255, 255, 255);
+  padding: 87px;
+  line-height: 40px;
+  font-size: 20px;
+  
+}
+.home {
+  background-color: rgb(60,145,157);
 }
 .homeimg {
-  height: 400px;
-  width: 300px;
+  height: 500px;
+  width: 400px;
+  padding: 30px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.quote {
+  text-align: center;
 }
