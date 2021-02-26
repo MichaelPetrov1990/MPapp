@@ -1,6 +1,6 @@
 <div class="home">
   <div class="banner">
-  <h1 class="quote">Welcome to the power of you!</h1>
+  <h1 class="heading">Welcome to the power of you!</h1>
   </div>
   <div class="info">
     <p class="home_text">
@@ -17,13 +17,14 @@
       src="https://images.unsplash.com/photo-1494386346843-e12284507169?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
       alt="pic" class="homeimg">
   </div>
-  <div class="d-flex">
-<h1 class="quote">"This app changed my life forever!"</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K9CgSjQDAvE" frameborder="0"
+  <div class="quote-and-vid">
+<iframe class="vid" width="560" height="315" src="https://www.youtube.com/embed/K9CgSjQDAvE" frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen></iframe>
+<p class="quote">"This app changed my life forever!"</p>
   </div>
-  <div>
-  <%= link_to 'Come meet yourself', about_path, class: "btn btn-primary" %>
+  <div class="button-div">
+  <%= link_to 'Come meet yourself', about_path, class: "btn btn-primary button" %>
   </div>
+  
   </div>
