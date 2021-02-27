@@ -13,6 +13,15 @@ $aquamarine: #80FFDB;
 * {
   font-family: "Montserrat";
 }
+
+.nav-button {
+  color: white !important;
+  background-color: #5e60ce;
+  padding: 4px 15px;
+  border-radius: 13px;
+  margin-right: 10px;
+}
+
 .home_text {
   color: white;
   padding: 87px;
@@ -22,6 +31,7 @@ $aquamarine: #80FFDB;
 }
 body {
   background-color: $sky-blue-crayola;
+  color: #fff;
 }
 .banner {
   height: 400px;
@@ -62,7 +72,4 @@ body {
     align-self: center;
     font-style: italic;
   }
-}
-.nav-link {
-  color: $purple;
 }
