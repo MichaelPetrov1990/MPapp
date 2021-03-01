@@ -5,9 +5,9 @@ User.destroy_all
 Questionnaire.destroy_all
 Question.destroy_all
 
-tarun = User.create! email: "tarun@gmail.com", password: "hello123"
-michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123"
-priya = User.create! email: "priya.biring@gmail.com", password: "hello123"
+tarun = User.create! email: "tarun@gmail.com", password: "hello123" first_name: "Tarun", last_name: "Mookhey"
+michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123", first_name: "Michael", last_name: "Petrov"
+priya = User.create! email: "priya.biring@gmail.com", password: "hello123" first_name: "Priya", last_name: "Biring"
 
   health_question1 = Question.create!(body: "From 1 to 10, please rate your fitness", category: "health")
   health_question2 = Question.create!(body: "Again please rate your physical health", category: "health")
