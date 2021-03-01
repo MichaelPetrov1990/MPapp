@@ -6,5 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :questionnaires, dependent: :destroy 
   has_many :answers
-
+ def full_name
+   "#{first_name} #{last_name}"
+ end
 end

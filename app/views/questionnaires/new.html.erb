@@ -1,12 +1,19 @@
-<h1>New Questionnaire for <%= current_user.email %></h1>
+<div class="container">
+<h1> Hi <%= current_user.first_name %>, please answer some questions on <%= @questionnaire.category.capitalize %> </h1>
+<h2>Rate from 1 to 10</h2>
 
 <%= form_for @questionnaire, url: new_questionnaire_path(id: @questionnaire.id), method: "post" do | f| %>
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
-    <% @questionnaire.questions.each_with_index do |question, index| %>
-      <p>Question<%= index+1 %>:  <%= question.body %></p>
-      <%= form.input_field "#{question.id}", collection: 1..10 %>
+    <% @questionnaire.questions.each do |question| %>
+      
+      <p class="question"><%= question.body %></p>
+      <%= form.input_field "#{question.id}", collection: 1..10, class:"dropdown_10" %>
+      
     <% end %>
-    <%= f.submit "OK" %>
+    <div class="questionnaire-button">
+    <%= f.submit "OK", class:"nav-link nav-button" %>
+    </div>
   <% end %>
 <% end %>
+</div>
