@@ -1,3 +1,3 @@
 class Activity < ApplicationRecord
-  belongs_to :areas_of_interest
+  belongs_to :plan
 end

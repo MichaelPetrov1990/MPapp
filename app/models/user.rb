@@ -6,6 +6,7 @@
            :recoverable, :rememberable, :validatable
     has_many :questionnaires, dependent: :destroy 
     has_many :answers
+    has_many :plans
 
    def full_name
      "#{first_name} #{last_name}"
