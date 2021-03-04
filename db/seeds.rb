@@ -1,10 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-
+Admin.destroy_all
 User.destroy_all
 Questionnaire.destroy_all
 Question.destroy_all
 
+  ali = Admin.create! email: "au@powerof.online", password: "hello123"
   tarun = User.create! email: "tarun@gmail.com", password: "hello123", first_name: "Tarun", last_name: "Mookhey"
   michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123", first_name: "Michael", last_name: "Petrov"
   priya = User.create! email: "priya.biring@gmail.com", password: "hello123", first_name: "Priya", last_name: "Biring"
@@ -29,7 +30,7 @@ Question.destroy_all
   wealth_question7 = Question.create!(body: "#{t}do you have time for activities you love?", category: "wealth", sub_category: "time")
   wealth_question8 = Question.create!(body: "#{t}how effective is your use of time?", category: "wealth", sub_category: "time")
   wealth_question9 = Question.create!(body: "#{t}how would you rate your balance between work and life?", category: "wealth", sub_category: "time")
- 
+
   happiness_question1 = Question.create!(body: "#{t}how would you rate the frequency and quality of connection with those closest to you?", category: "happiness", sub_category: "relationships")
   happiness_question2 = Question.create!(body: "#{t}what's the level of support you give to and receive from those closest to you?", category: "happiness", sub_category: "relationships")
   happiness_question3 = Question.create!(body: "#{t}how deep is the connection with the person closest to you?", category: "happiness", sub_category: "relationships")
@@ -39,3 +40,5 @@ Question.destroy_all
   happiness_question7 = Question.create!(body: "#{t}how would you rate your life-long learning and Continuous Professional Development?", category: "happiness", sub_category: "interests/growth")
   happiness_question8 = Question.create!(body: "#{t}how quickly do you aquire new skills?", category: "happiness", sub_category: "interests/growth")
   happiness_question9 = Question.create!(body: "#{t}how passionate are you about expanding your range of interests?", category: "happiness", sub_category: "interests/growth")
+
+  puts "successful"
