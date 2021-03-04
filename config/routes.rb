@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'questions', to: 'questions#index'
   get 'plan', to: 'plans#show'
 
+  get 'admin/questions', to: 'admin#questions'
+  get 'admin/users', to: 'admin#users'
 
   get 'about', to: 'pages#about'
   get 'faqs', to: 'pages#faqs'
