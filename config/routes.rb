@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   root to: 'pages#home'
   get 'questionnaires', to: 'questionnaires#index', as: "questionnaire_categories"
   get 'questionnaire/category/:category', to: 'questionnaires#new', as: "new_questionnaire"
