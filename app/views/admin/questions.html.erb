@@ -1,1 +1,40 @@
-<h1>admin/questions</h1>
+<div class="container">
+<h1>Questions Info</h1>
+<h2>There are <%= @questions.count %> questions. 3 each per Element(sub-category).</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Factor</th>
+      <th scope="col">Element</th>
+      <th scope="col">Question</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @health_questions.each do |question| %>
+    <tr>
+      <th scope="row"></th>
+      <td><%= question.category.capitalize %></td>
+      <td><%= question.sub_category.capitalize %></td>
+      <td><%= question.body %></td>
+    </tr>
+  <%end  %>
+  <% @wealth_questions.each do |question| %>
+    <tr>
+      <th scope="row"></th>
+      <td><%= question.category.capitalize %></td>
+      <td><%= question.sub_category.capitalize %></td>
+      <td><%= question.body %></td>
+    </tr>
+  <%end  %>
+  <% @happiness_questions.each do |question| %>
+    <tr>
+      <th scope="row"></th>
+      <td><%= question.category.capitalize %></td>
+      <td><%= question.sub_category.capitalize %></td>
+      <td><%= question.body %></td>
+    </tr>
+  <%end  %>
+  </tbody>
+</table>
+</div>
