@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get 'questionnaires', to: 'questionnaires#index', as: "questionnaire_categories"
   get 'questionnaire/category/:category', to: 'questionnaires#new', as: "new_questionnaire"
   post 'questionnaire/:category/:id', to: 'answers#create'
-  # get 'questionnaire/:id', to: 'questionnaires#show', as: 'questionnaire'
+  get 'questions', to: 'questions#index'
   get 'plan', to: 'plans#show'
 
+  get 'admin/questions', to: 'admin#questions'
+  get 'admin/users', to: 'admin#users'
 
   get 'about', to: 'pages#about'
   get 'faqs', to: 'pages#faqs'

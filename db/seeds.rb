@@ -4,7 +4,7 @@
 User.destroy_all
 Questionnaire.destroy_all
 Question.destroy_all
-
+  ali = User.create! email: "au@powerof.online", password: "hello123", first_name: "Alistair", last_name: "Upton", admin: true
   tarun = User.create! email: "tarun@gmail.com", password: "hello123", first_name: "Tarun", last_name: "Mookhey"
   michael = User.create! email: "mpetrovcello@gmail.com", password: "hello123", first_name: "Michael", last_name: "Petrov"
   priya = User.create! email: "priya.biring@gmail.com", password: "hello123", first_name: "Priya", last_name: "Biring"
@@ -39,3 +39,5 @@ Question.destroy_all
   happiness_question7 = Question.create!(body: "#{t}how would you rate your life-long learning and Continuous Professional Development?", category: "happiness", sub_category: "interests/growth")
   happiness_question8 = Question.create!(body: "#{t}how quickly do you aquire new skills?", category: "happiness", sub_category: "interests/growth")
   happiness_question9 = Question.create!(body: "#{t}how passionate are you about expanding your range of interests?", category: "happiness", sub_category: "interests/growth")
+
+  puts "Absolutely nailed it!"
