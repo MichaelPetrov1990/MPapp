@@ -17,6 +17,7 @@
       <td class="table-data"><%= question.category.capitalize %></td>
       <td class="table-data"><%= question.sub_category.capitalize %></td>
       <td class="table-data"><%= question.body %></td>
+      <td><%= link_to 'Edit', admin_edit_path(question) %></td>
     </tr>
   <%end  %>
   <% @wealth_questions.each do |question| %>
