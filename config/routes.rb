@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'admin/questions', to: 'admin#questions'
   get 'admin/questions/:id/edit', to: 'questions#edit', as: 'admin_edit'
-  patch 'admin/questions/:id', to: 'questions#update'
+  patch 'admin/questions/:id/edit', to: 'questions#update'
   get 'admin/users', to: 'admin#users'
 
   get 'about', to: 'pages#about'
