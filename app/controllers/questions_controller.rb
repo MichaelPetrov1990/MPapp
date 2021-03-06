@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -22,10 +22,13 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    
+    @question = Question.find(params[:id])
   end
 
   def update
+    @question = Question.find(params[:id])
+    @question.update!(body: params[:body])
+    redirect_to admin_questions_path
   end
 
 private
