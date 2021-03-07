@@ -11,13 +11,13 @@
     </tr>
   </thead>
   <tbody>
-  <% @health_questions.each do |question| %>
+  <% @health_questions.each_with_index do |question| %>
     <tr>
       <th scope="row"></th>
       <td class="table-data"><%= question.category.capitalize %></td>
       <td class="table-data"><%= question.sub_category.capitalize %></td>
       <td class="table-data"><%= question.body %></td>
-      <td><%= link_to 'Edit', admin_edit_path(question) %></td>
+      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %></td>
     </tr>
   <%end  %>
   <% @wealth_questions.each do |question| %>
@@ -26,6 +26,7 @@
       <td class="table-data"><%= question.category.capitalize %></td>
       <td class="table-data"><%= question.sub_category.capitalize %></td>
       <td class="table-data"><%= question.body %></td>
+      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %></td>
     </tr>
   <%end  %>
   <% @happiness_questions.each do |question| %>
@@ -34,6 +35,7 @@
       <td class="table-data"><%= question.category.capitalize %></td>
       <td class="table-data"><%= question.sub_category.capitalize %></td>
       <td class="table-data"><%= question.body %></td>
+      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %></td>
     </tr>
   <%end  %>
   </tbody>
