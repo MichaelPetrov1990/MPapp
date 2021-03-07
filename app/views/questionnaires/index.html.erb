@@ -1,4 +1,10 @@
-Choose your category
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-6 mx-auto">
+    <h2 class="my-4">Choose Your Category</h2>
 <% @questionnaire_category_options.each do |category| %>
 <%= link_to category, new_questionnaire_path(category), class:"btn btn-secondary btn-lg btn-block" %>
 <% end %>
+</div>
+</div>
+</div>

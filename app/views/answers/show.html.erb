@@ -1,4 +1,5 @@
-<h1>Results</h1>
-<h3>You scored an average of   <%= @questionnaire.average_score %> in your questionnaire</h3>
+<h1> Hi <%= current_user.first_name %></h1>
+<h1>Check Out Your Results</h1>
+<h3>You scored an average of  <b> <%= @questionnaire.average_score %> </b>in your questionnaire</h3>
 <h4>Click <%= link_to "here", plan_path %> to view our action plan we have tailor made for you:</h4>
 

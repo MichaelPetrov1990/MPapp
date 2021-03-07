@@ -1,32 +1,34 @@
-<h1>admin/users</h1>
+<div class="container">
+  <h1>Administrator - All User Information</h1>
 
-<h2>Your App Has <%= @users.count %> Users</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Full Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Date Registered</th>
-    <!--   <th scope="col">Date Last Questionnaire Completed</th>
+  <h2>Your App Has <%= @users.count %> Users</h2>
+  <table class="table table-striped" style="color:white">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date Registered</th>
+        <!--   <th scope="col">Date Last Questionnaire Completed</th>
       <th scope="col">Date Registered</th>
       <th scope="col">Date Registered</th> -->
-    </tr>
-  </thead>
-  <tbody>
+      </tr>
+    </thead>
+    <tbody>
       <% @users.each do |u| %>
-    <tr>
-      <th scope="row"></th>
-      <td> <%= u.full_name %></td>
-      <td><%= u.email %></td>
-      <td><%= u.created_at.strftime("%d-%m-%Y") %></td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
-
-
-* date last questionnaire completed
-* number of plans completed to date
-* scores per category
-
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <%= u.full_name %>
+          </td>
+          <td>
+            <%= u.email %>
+          </td>
+          <td>
+            <%= u.created_at.strftime("%d-%m-%Y") %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
