@@ -21,20 +21,18 @@ class QuestionsController < ApplicationController
     # CREATING OUR QUESTION THAT IS ASSOCIATED TO A QUESTIONNAIRE
   end
 
-  def edit
-    @question = Question.find(params[:id])
-  end
-
-  def update
-    @question = Question.find(params[:id])
-    @question.update!(body: params[:body])
-    redirect_to admin_questions_path
-  end
-
 private
 
   def strong_params
     params.require(:question).permit(:body, :answer, :questionnaire_id)
+  end
+
+  def question_params
+    params.permit(:id)
+  end
+
+  def prepare_question
+   @question = Question.find(question_params)  
   end
 
 

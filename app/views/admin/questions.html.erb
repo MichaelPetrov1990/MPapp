@@ -1,43 +1,35 @@
 <div class="container" style="color:white" >
-<h1>Administrator - All Question Information</h1>
-<h2>There are <%= @questions.count %> questions. 3 each per Element(sub-category).</h2>
+<h1>Questions</h1>
 <table class="table table-striped", style="color:white">
   <thead>
     <tr>
       <th scope="col"></th>
       <th scope="col">Factor</th>
       <th scope="col">Element</th>
-      <th scope="col">Question</th>
+      <th scope="col" style="width: 50%">Question</th>
     </tr>
   </thead>
   <tbody>
-  <% @health_questions.each_with_index do |question| %>
     <tr>
-      <th scope="row"></th>
-      <td class="table-data"><%= question.category.capitalize %></td>
-      <td class="table-data"><%= question.sub_category.capitalize %></td>
-      <td class="table-data"><%= question.body %></td>
-      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %>
+    <%= form_with data: {remote: false} do |f| %>
+      <th scope="row">No (#id)</th>
+      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq), class: "form-control") %></td>
+      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.pluck(:sub_category).uniq), class: "form-control") %></td>
+      <td class="table-data"><%= f.text_field :body, class: "form-control" %></td>
+      <td class="table-data" ><%= f.submit "Create New Question", class: "ml-3 btn btn-secondary" %></td>
+    <% end %>
     </tr>
-  <%end  %>
-  <% @wealth_questions.each do |question| %>
+  <% @questions.each_with_index do |question, index| %>
+    <%= form_with url: admin_question_path(question.id) do |f| %>
     <tr>
-      <th scope="row"></th>
-      <td class="table-data"><%= question.category.capitalize %></td>
-      <td class="table-data"><%= question.sub_category.capitalize %></td>
-      <td class="table-data"><%= question.body %></td>
-      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %></td>
+      <th scope="row"><%= index + 1 %> (#<%= question.id %>)</th>
+      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq, selected: question.category), class: "form-control") %></td>
+      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.where(category: question.category).pluck(:sub_category).uniq, selected: question.sub_category), class: "form-control") %></td>
+      <td class="table-data"><%= f.text_field :body, value: question.body, class: "form-control" %></td>
+      <td class="table-data" ><%= f.select(:method, options_for_select(["update","delete"]), class: "form-control") %><%= f.submit "OK", class: "ml-3 btn btn-secondary" %></td>
     </tr>
-  <%end  %>
-  <% @happiness_questions.each do |question| %>
-    <tr>
-      <th scope="row"></th>
-      <td class="table-data"><%= question.category.capitalize %></td>
-      <td class="table-data"><%= question.sub_category.capitalize %></td>
-      <td class="table-data"><%= question.body %></td>
-      <td class="edit-button"><%= link_to 'Edit', admin_edit_path(question) %></td>
-    </tr>
-  <%end  %>
+  <% end %>
+  <% end %>
   </tbody>
 </table>
 </div>

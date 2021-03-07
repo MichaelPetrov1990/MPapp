@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'plan', to: 'plans#show'
 
   get 'admin/questions', to: 'admin#questions'
-  get 'admin/questions/:id/edit', to: 'questions#edit', as: 'admin_edit'
-  patch 'admin/questions/:id/edit', to: 'questions#update'
+  post 'admin/question/:id', to: 'admin#question', as: "admin_question"
+  post 'admin/questions', to: 'admin#create'
   get 'admin/users', to: 'admin#users'
 
   get 'about', to: 'pages#about'

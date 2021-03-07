@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_05_162729) do
     t.integer "rating"
     t.bigint "user_id", null: false
     t.bigint "questionnaire_id", null: false
-    t.bigint "question_id", null: false
+    t.bigint "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"

@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :questionnaire, optional: true
-  has_one :answer
+  has_one :answer, dependent: :destroy
 
   def self.generate_three_questions(category_string)
     return false unless category_string.class == String
