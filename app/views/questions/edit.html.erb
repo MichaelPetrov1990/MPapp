@@ -1,6 +1,9 @@
+<div class="container">
 <h1>Edit question</h1>
+<p><%= @question.body %></p>
 <%= form_with url: admin_edit_path, method: "patch" do |f| %>
   <%= f.label :body %>
   <%= f.text_field :body %>
   <%= f.submit %>
 <% end %>
+</div>
