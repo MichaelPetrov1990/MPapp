@@ -9,12 +9,12 @@
     <% @questionnaire.questions.each do |question| %>
       
       <p class="question"><%= question.body %></p>
-      <%= form.input_field "#{question.id}", collection: 1..10, class:"dropdown_10" %>
+      <%= form.input_field "#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
       
     <% end %>
-    <div class="questionnaire-button">
-    <%= f.submit "OK", class:"nav-link nav-button" %>
-    </div>
+    <button class="button">
+    <%= f.submit "OK", class:"btn btn-link" %>
+    </button>
   <% end %>
 <% end %>
 </div>

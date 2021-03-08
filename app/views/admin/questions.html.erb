@@ -13,8 +13,8 @@
     <tr>
     <%= form_with data: {remote: false} do |f| %>
       <th scope="row">No (#id)</th>
-      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq), class: "form-control") %></td>
-      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.pluck(:sub_category).uniq), class: "form-control") %></td>
+      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq), class: "form-select") %></td>
+      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.pluck(:sub_category).uniq), class: "form-select") %></td>
       <td class="table-data"><%= f.text_field :body, class: "form-control" %></td>
       <td class="table-data" ><%= f.submit "Create New Question", class: "ml-3 btn btn-secondary" %></td>
     <% end %>
@@ -23,10 +23,10 @@
     <%= form_with url: admin_question_path(question.id) do |f| %>
     <tr>
       <th scope="row"><%= index + 1 %> (#<%= question.id %>)</th>
-      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq, selected: question.category), class: "form-control") %></td>
-      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.where(category: question.category).pluck(:sub_category).uniq, selected: question.sub_category), class: "form-control") %></td>
+      <td class="table-data"><%= f.select(:category, options_for_select(Question.pluck(:category).uniq, selected: question.category), class: "form-select form-select-md") %></td>
+      <td class="table-data"><%= f.select(:sub_category, options_for_select(Question.where(category: question.category).pluck(:sub_category).uniq, selected: question.sub_category), class: "form-select") %></td>
       <td class="table-data"><%= f.text_field :body, value: question.body, class: "form-control" %></td>
-      <td class="table-data" ><%= f.select(:method, options_for_select(["update","delete"]), class: "form-control") %><%= f.submit "OK", class: "ml-3 btn btn-secondary" %></td>
+      <td class="table-data" ><%= f.select(:method, options_for_select(["update","delete"]), class: "form-select") %><%= f.submit "OK", class: "ml-3 btn btn-secondary" %></td>
     </tr>
   <% end %>
   <% end %>
