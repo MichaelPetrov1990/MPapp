@@ -16,4 +16,14 @@ class Questionnaire < ApplicationRecord
     rating_array.sum / rating_array.length
   end
 
+  def completed?
+    answers.count == 27
+  end
+
+  def self.completed_all
+    # questionnaires with 3 answers completed
+    self.where(:answers == 3).count #count method needs to work correctly
+  end
+
 end
+
