@@ -1,12 +1,10 @@
 class QuestionnairesController < ApplicationController
-  def index
-    @questionnaire_category_options = ["health", "wealth","happiness"]
-  end
 
   def new
-    @questionnaire = Questionnaire.create!(category: category_params[:category], user: current_user)
-    questions = Question.generate_three_questions(category_params[:category])
-    @questionnaire.questions << questions
+    @questionnaire = Questionnaire.create!(user: current_user)    
+    ### grab 3 unasked questions from the Question table unless and until Questionnaire.completed? ###
+    # questions = @questionnaire.provide_three_unanswered_questions unless @questionnaire.completed?
+    # @questionnaire.questions << questions
   end
 
   def show
