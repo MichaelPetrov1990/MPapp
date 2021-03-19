@@ -17,12 +17,7 @@ class Questionnaire < ApplicationRecord
   end
 
   def completed?
-    answers.count == 27
-  end
-
-  def self.completed_all
-    # questionnaires with 3 answers completed
-    self.where(:answers == 3).count #count method needs to work correctly
+    answers.count == Question.count
   end
 
 end
