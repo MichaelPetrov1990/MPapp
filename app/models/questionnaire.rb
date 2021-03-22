@@ -16,8 +16,20 @@ class Questionnaire < ApplicationRecord
     rating_array.sum / rating_array.length
   end
 
+
   def completed?
     answers.count == Question.count
+  end
+
+end
+
+
+  def provide_three_unanswered_questions
+    # priya to complete
+  end
+
+  def completed?
+    # priya to complete
   end
 
 end

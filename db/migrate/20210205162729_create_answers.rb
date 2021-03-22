@@ -4,7 +4,7 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.references :user, null: false, foreign_key: true
       t.references :questionnaire, null: false, foreign_key: true      
-      t.references :question, null: false, foreign_key: true
+      t.references :question, foreign_key: true
       t.timestamps
     end
   end
