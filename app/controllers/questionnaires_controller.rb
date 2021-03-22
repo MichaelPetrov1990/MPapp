@@ -1,10 +1,9 @@
 class QuestionnairesController < ApplicationController
 
   def new
-    @questionnaire = Questionnaire.create!(user: current_user)    
-    ### grab 3 unasked questions from the Question table unless and until Questionnaire.completed? ###
-    # questions = @questionnaire.provide_three_unanswered_questions unless @questionnaire.completed?
-    # @questionnaire.questions << questions
+    @questionnaire = Questionnaire.create!(user: current_user)
+    questions = @questionnaire.provide_three_unanswered_questions unless @questionnaire.completed?
+    @questionnaire.questions << questions
   end
 
   def show
