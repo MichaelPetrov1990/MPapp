@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'questionnaires', to: 'questionnaires#new', as: "new_questionnaire"
-  post 'questionnaire/:category/:id', to: 'answers#create'
+  post 'questionnaires', to: 'answers#create'
   get 'questions', to: 'questions#index'
   get 'plan', to: 'plans#show'
 
