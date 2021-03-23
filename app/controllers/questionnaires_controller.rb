@@ -1,9 +1,8 @@
 class QuestionnairesController < ApplicationController
 
   def new
-    @questionnaire = Questionnaire.create!(user: current_user)
-    questions = @questionnaire.provide_three_unanswered_questions unless @questionnaire.completed?
-    @questionnaire.questions << questions
+    @questionnaire = Questionnaire.generate(current_user)
+    @questions = @questionnaire.provide_unanswered_questions(3)
   end
 
   def show
