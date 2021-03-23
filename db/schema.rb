@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_171416) do
   end
 
   create_table "questionnaires", force: :cascade do |t|
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id", null: false
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
