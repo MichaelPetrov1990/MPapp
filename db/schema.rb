@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_171416) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "rating"
+    t.integer "weight", default: 0
     t.bigint "user_id", null: false
     t.bigint "questionnaire_id", null: false
     t.bigint "question_id"
