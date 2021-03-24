@@ -4,7 +4,8 @@ class AnswersController < ApplicationController
     answer_params[:answers].each do |question_id, answer_rating|
       @questionnaire.answers.create!(user_id: current_user.id, question_id:question_id, rating: answer_rating)
     end
-    render "show"
+    redirect_to new_questionnaire_path and return unless @questionnaire.completed?
+    render "plans/show"
   end
   
   private
