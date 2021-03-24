@@ -34,14 +34,15 @@ class Questionnaire < ApplicationRecord
     answered = self.answers.pluck(:question_id)
     list = Question.pluck(:id)
     remaining = list + answered - (list & answered)
-    Question.find(remaining).sample(amount_integer)
+    Question.find(remaining.sample(amount_integer))
   end
 
-  def generate_dummy_answers
+  def sample_answers(amount_integer)
+    count = Question.count
+   raise ArgumentError, "Maximum answers is #{count}!" if amount_integer > count
     questionnaire = self
     questionnaire.answers.destroy_all
-    Question.first(24).each { |q| questionnaire.answers << Answer.new(question_id: q.id, rating: rand(10), user_id: questionnaire.user_id) }
+    Question.first(amount_integer).shuffle.each { |q| answers = []; answers << Answer.new(question_id: q.id, rating: rand(10), user_id: questionnaire.user_id); questionnaire.answers << answers }
   end
 
 end
-
