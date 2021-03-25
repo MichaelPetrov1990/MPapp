@@ -1,6 +1,14 @@
 <div class="container">
   <% @count = @questionnaire.answers.count %>
-<h1> <%= @count == 0 ? "Hi" : "Great work" %> <%= current_user.first_name %>! <%= @count == 0 ? "Please start" : "Now continue" %>   to answer these questions below...</h1>
+<h1>
+<% if @count < 12 %>
+  Hi <%= current_user.first_name %>, please complete this short questionnaire!
+  <% elsif @count == 12 %>
+  Great job, you legend, keep going!
+  <% else %>
+  Almost there, <%= current_user.first_name %>, not long left now! 
+<% end %>
+</h1>
 <h2>Rate from 1 to 10</h2>
 <p><i>10 being the highest and 1 being the lowest</i></p>
 <%= @count %>/<%= Question.count %>
@@ -11,7 +19,7 @@
       <p class="question col-md-5"><%= question.body %></p>
       <div class="form-row">
       <%= form.input_field "answer-#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
-      <%= form.input_field "weight-#{question.id}", collection: 1..5, class:"form-control ml-5 col-md-2", placeholder: "i care about this...." %>                      
+      <%= form.input_field "weight-#{question.id}", as: :range, min: 0, max: 100, value: 0, class:"form-control ml-5 col-md-2", placeholder: "i care about this...." %>                      
       </div>
     <% end %>
     <button class="button mt-3">
@@ -20,3 +28,5 @@
   <% end %>
 <% end %>
 </div>
+
+<!--<h1> <%= @count == 0 ? "Hi" : "Great work" %> <%= current_user.first_name %>! <%= @count == 0 ? "Please start" : "Now continue" %>   to answer these questions below...</h1>
