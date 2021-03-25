@@ -7,12 +7,13 @@
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
     <% @questions.each do |question| %>
-      
-      <p class="question"><%= question.body %></p>
-      <%= form.input_field "#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
-      
+      <p class="question col-md-5"><%= question.body %></p>
+      <div class="form-row">
+      <%= form.input_field "answer-#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
+      <%= form.input_field "weight-#{question.id}", collection: 1..5, class:"form-control ml-5 col-md-2", placeholder: "i care about this...." %>                      
+      </div>
     <% end %>
-    <button class="button">
+    <button class="button mt-3">
     <%= f.submit "OK", class:"btn btn-link" %>
     </button>
   <% end %>
