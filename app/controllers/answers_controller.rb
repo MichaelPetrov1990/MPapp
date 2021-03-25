@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
   def create
     @questionnaire = Questionnaire.find(questionnaire_params[:id])
-    binding.pry
     answer_text.each do |question_id, answer_rating|
       @questionnaire.answers.create!(user_id: current_user.id, question_id:question_id, rating: answer_rating)
     end
