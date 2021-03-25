@@ -1,8 +1,9 @@
 <div class="container">
-<h1> Hi <%= current_user.first_name %>, please answer these questions below...</h1>
+  <% @count = @questionnaire.answers.count %>
+<h1> <%= @count == 0 ? "Hi" : "Great work" %> <%= current_user.first_name %>! <%= @count == 0 ? "Please start" : "Now continue" %>   to answer these questions below...</h1>
 <h2>Rate from 1 to 10</h2>
 <p><i>10 being the highest and 1 being the lowest</i></p>
-<%= @questionnaire.answers.count %>/<%= Question.count %>
+<%= @count %>/<%= Question.count %>
 <%= form_for @questionnaire, url: new_questionnaire_path(id: @questionnaire.id), method: "post" do | f| %>
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
