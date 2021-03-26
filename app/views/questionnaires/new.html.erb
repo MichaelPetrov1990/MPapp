@@ -11,7 +11,8 @@
       <p class="question col-md-5"><%= question.body %></p>
       <div class="form-row">
       <%= form.input_field "answer-#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
-      <%= form.input_field "weight-#{question.id}", collection: 1..5, class:"form-control ml-5 col-md-2", placeholder: "i care about this...." %>                      
+      <label for="slider" style="padding-left: 20px; padding-top: 5px;">Importance:</label>
+      <%= form.input_field "weight-#{question.id}", as: :range, min: 0, max: 5, value: 0, id:'slider', class:"form-control ml-5 col-md-2"%>
       </div>
     <% end %>
     <button class="button mt-3">
