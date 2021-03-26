@@ -37,6 +37,10 @@ class Questionnaire < ApplicationRecord
     Question.find(remaining.sample(amount_integer))
   end
 
+  def count_questions_remaining
+    Question.count - answers.count
+  end
+
   def sample_answers(amount_integer)
     count = Question.count
    raise ArgumentError, "Maximum answers is #{count}!" if amount_integer > count
