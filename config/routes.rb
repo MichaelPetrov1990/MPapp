@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'questions', to: 'questions#index'
   get 'plan', to: 'plans#show'
 
+  get 'answers/weightings', to: 'answers#show'
+  post 'answers/weightings', to: 'answers#update'
+
   get 'admin/questions', to: 'admin#questions'
   post 'admin/question/:id', to: 'admin#question', as: "admin_question"
   post 'admin/questions', to: 'admin#create'
