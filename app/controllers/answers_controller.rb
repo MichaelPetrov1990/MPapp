@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def create
     @questionnaire = Questionnaire.find(questionnaire_params[:id])
-    answer_text.each do |question_id, answer_rating|
+    answer_text_params.each do |question_id, answer_rating|
       @questionnaire.answers.create!(user_id: current_user.id, question_id:question_id, rating: answer_rating)
     end
     if @questionnaire.completed?
@@ -35,11 +35,11 @@ class AnswersController < ApplicationController
     params.permit(:answers => {})
   end
 
-  def weightings
+  def weighting_params
     answer_params.to_h.symbolize_keys[:answers].select{|k,v| k.include? "weight"}.map {|k,v| [k.split("-")[1],v]}
   end
 
-  def answer_text
+  def answer_text_params
     answer_params.to_h.symbolize_keys[:answers].select{|k,v| k.include? "answer"}.map {|k,v| [k.split("-")[1],v]}    
   end
 
