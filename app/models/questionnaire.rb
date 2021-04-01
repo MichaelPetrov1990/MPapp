@@ -49,4 +49,13 @@ class Questionnaire < ApplicationRecord
     Question.first(amount_integer).shuffle.each { |q| answers = []; answers << Answer.new(question_id: q.id, rating: rand(10), user_id: questionnaire.user_id); questionnaire.answers << answers }
   end
 
+  def lowest_ranking_answers(amount_integer)
+   list = self.answers.pluck(:rating, :question_id).sort.take(amount_integer) #gives us an array of arrays with each being rating and answer_id
+   rating_and_answer_id = []
+   list.each do |answer|
+    rating_and_answer_id.push({ sub_category:"#{Question.find(answer[1]).sub_category}", answer: "#{answer[0]}" }) 
+   end
+   rating_and_answer_id.group_by {|x| x[:answer]}
+   return rating_and_answer_id
+  end
 end
