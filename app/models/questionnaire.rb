@@ -22,6 +22,12 @@ class Questionnaire < ApplicationRecord
     rating_array.sum / rating_array.length
   end
 
+
+  def lowest_ranking_answers(amount_integer)
+    answers.pluck(:rating).sort.first(amount_integer)
+  end
+
+
   def mark_as_completed
     update!(completed: true) if total_answers_provided?
   end
