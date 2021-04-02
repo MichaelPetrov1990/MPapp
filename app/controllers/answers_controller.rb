@@ -14,7 +14,10 @@ class AnswersController < ApplicationController
 
   def show
     # add a new route for weightings
-    # create 1 new view: show.html.erb 
+    # binding.pry
+    @answers = current_user.questionnaires.last.lowest_ranking_answers(9)
+    
+    
       # with radio buttons with labels (not important -> essential/critical)
     # update answer table with weighting integer
   end
