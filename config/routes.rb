@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'questionnaires', to: 'questionnaires#new', as: "new_questionnaire"
   post 'questionnaires', to: 'answers#create'
   get 'questions', to: 'questions#index'
-  get 'plan', to: 'plans#show'
+  get 'plan', to: 'answers#show'
 
-  get 'answers/weightings', to: 'answers#show'
-  post 'answers/weightings', to: 'answers#update'
+  get 'questionnaires/weightings', to: 'answers#show'
+  post 'questionnaire/:id/weightings', to: 'answers#update'
 
   get 'admin/questions', to: 'admin#questions'
   post 'admin/question/:id', to: 'admin#question', as: "admin_question"
