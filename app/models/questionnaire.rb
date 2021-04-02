@@ -21,7 +21,7 @@ class Questionnaire < ApplicationRecord
     rating_array = answers.pluck(:rating)
     rating_array.sum / rating_array.length
   end
-
+  
   def mark_as_completed
     update!(completed: true) if total_answers_provided?
   end
@@ -50,12 +50,11 @@ class Questionnaire < ApplicationRecord
   end
 
   def lowest_ranking_answers(amount_integer)
-   list = self.answers.pluck(:rating, :question_id).sort.take(amount_integer) #gives us an array of arrays with each being rating and answer_id
+   list = self.answers.pluck(:rating, :question_id, :id).sort.take(amount_integer) #gives us an array of arrays with each being rating and answer_id
    rating_and_answer_id = []
    list.each do |answer|
-    rating_and_answer_id.push({ sub_category:"#{Question.find(answer[1]).sub_category}", answer: "#{answer[0]}" }) 
+    rating_and_answer_id.push({ label:"#{Question.find(answer[1]).sub_category}", id: answer[2] }) 
    end
-   rating_and_answer_id.group_by {|x| x[:answer]}
    return rating_and_answer_id
   end
 end
