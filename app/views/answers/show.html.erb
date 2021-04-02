@@ -1,5 +1,10 @@
 <h1> Hi <%= current_user.first_name %></h1>
 <h1>Check Out Your Results</h1>
-<h3>You scored an average of  <b> <%= @questionnaire.average_score %> </b>in your questionnaire</h3>
+<% @answers.each do |answer|%>
+<%= form_with do |form| %>
+  <%= form.radio_button :answer[:id] %>
+  <%= form.label :answer[:label] %>
+ <% end %>
+<% end %>
 <h4>Click <%= link_to "here", plan_path %> to view our action plan we have tailor made for you:</h4>
 
