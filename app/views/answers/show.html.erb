@@ -1,10 +1,20 @@
 <h1> Hi <%= current_user.first_name %></h1>
 <h1>Check Out Your Results</h1>
 <% @answers.each do |answer|%>
-<%= form_with do |form| %>
-  <%= form.radio_button :answer[:id] %>
-  <%= form.label :answer[:label] %>
- <% end %>
+<form action="POST">
+<p><%= answer[:label] %></p>
+<input type="radio" id="weight" name="weight" value=0>
+<label for="weight">Not very important</label>
+<input type="radio" id="weight" name="weight" value=1>
+<label for="weight">Has some importance</label>
+<input type="radio" id="weight" name="weight" value=2>
+<label for="weight">Important</label>
+<input type="radio" id="weight" name="weight" value=3>
+<label for="weight">Very important</label>
+<input type="radio" id="weight" name="weight" value=4>
+<label for="weight">Essential/Critical</label>
+
+</form>
 <% end %>
 <h4>Click <%= link_to "here", plan_path %> to view our action plan we have tailor made for you:</h4>
 
