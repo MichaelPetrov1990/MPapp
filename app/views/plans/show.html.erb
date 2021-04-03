@@ -1,6 +1,24 @@
-<h1>Plans#show</h1>
-<p>Find me in app/views/plans/show.html.erb</p>
+  
+<h1 class="text-center my-4">Summary</h1>
 
-<% @rating_and_answer_id.each do |string|%>
-  <p><%= string %></p>
+<h1 class="text-center red my-4">HEALTH</h1>
+<h1 class="text-center yellow my-4">WEALTH</h1>
+<h1 class="text-center green my-4">HAPPINESS</h1>
+
+<h2 class="text-center my-5">Highest Weighted Subcategories (things doing well)</h2>
+
+<% @highest_answers.each do |answer|  %>
+<h5 class="text-center"><%= answer.sub_category %></h5>
 <% end %>
+
+<h2 class="text-center my-5">Lowest Weighted Subcategories (things that need attention)</h2>
+
+<% @lowest_answers.each do |answer|  %>
+<h5 class="text-center">
+<%= answer.sub_category %>  
+</h5>
+<% end %>
+
+<h1 class="text-center my-4">Action items</h1>
+
+<h1 class="text-center my-4">One month measurables</h1>
