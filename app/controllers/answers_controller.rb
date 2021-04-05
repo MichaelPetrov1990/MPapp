@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :weightings, only: [:show]
+
   def create
     @questionnaire = Questionnaire.find(questionnaire_params[:id])
     answer_text_params.each do |question_id, answer_rating|
@@ -13,8 +15,6 @@ class AnswersController < ApplicationController
   end
 
   def show
-    # add a new route for weightings
-    # binding.pry
     @answers = current_user.questionnaires.last.lowest_ranking_answers(9)
     
     
@@ -29,6 +29,10 @@ class AnswersController < ApplicationController
   end
   
   private
+
+  def weightings
+    @weightings = [ ["Not very important",2],["Has some importance",4],["Important",6],["Very important",8],["Essential/Critical",10] ]
+  end
 
   def questionnaire_params
     params.require(:questionnaire).permit(:id)

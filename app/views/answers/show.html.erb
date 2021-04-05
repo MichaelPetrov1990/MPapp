@@ -1,19 +1,17 @@
+<div class="ml-5">
 <h1> Hi <%= current_user.first_name %></h1>
 <h1>Check Out Your Results</h1>
-<%= form_with method: :post do |f| %>
-<% @answers.each do |answer|%>
-<p><%= answer[:label] %></p>
-<%= f.radio_button :not_very, value: 1, name: "not_very" %>
-<%= f.label :not_very, "Not very important" %>
-<%= f.radio_button :has_some, value: 2, name: "has_some" %>
-<%= f.label :has_some, "Has some importance" %>
-<%= f.radio_button :important, value: 3, name: "important" %>
-<%= f.label :important, "Important" %>
-<%= f.radio_button :very_important, value: 4, name: "very_important" %>
-<%= f.label :very_important, "Very important" %>
-<%= f.radio_button :essential, value: 5, name: "essential" %>
-<%= f.label :essential, "Essential/Critical" %>
+<%= form_with url: plan_path do |f| %>
+<% @answers.each do |answer| %>
+  <%= f.hidden_field answer[1] %>
+  <%= f.label answer[0] %>
+  <br>
+  <%= f.select :weighting, @weightings %>
+  <br>
 <% end %>
-<%= f.submit 'OK' %>
+ <%= f.submit 'OK' %>
+
 <% end %>
 <h4>Click <%= link_to "here", plan_path %> to view our action plan we have tailor made for you:</h4>5
+</div>
+
