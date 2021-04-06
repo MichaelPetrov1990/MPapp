@@ -1,17 +1,14 @@
 <div class="ml-5">
 <h1> Hi <%= current_user.first_name %></h1>
 <h1>Check Out Your Results</h1>
-<%= form_with url: plan_path do |f| %>
-<% @answers.each do |answer| %>
-  <%= f.hidden_field answer[1] %>
-  <%= f.label answer[0] %>
-  <br>
-  <%= f.select :weighting, @weightings %>
-  <br>
-<% end %>
- <%= f.submit 'OK' %>
-
+<%= form_with url: answers_path, method: "PATCH" do |f| %>
+  <div class="mt-5">
+    <% @answers.each_with_index do |answer, index| %>
+      <%= f.label :weighting, answer[0] %>
+      <%= f.select answer[1], @weightings %>    
+    <% end %>
+  </div>
+  <%= f.submit 'OK' %>
 <% end %>
 <h4>Click <%= link_to "here", plan_path %> to view our action plan we have tailor made for you:</h4>5
 </div>
-

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'plan', to: 'answers#show'
 
   get 'questionnaires/weightings', to: 'answers#show'
-  post 'questionnaire/:id/weightings', to: 'answers#update'
+  patch 'answers', to: 'answers#update'
 
   get 'admin/questions', to: 'admin#questions'
   post 'admin/question/:id', to: 'admin#question', as: "admin_question"
