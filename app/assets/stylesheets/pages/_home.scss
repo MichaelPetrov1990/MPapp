@@ -15,15 +15,17 @@ $aquamarine: #80FFDB;
 }
 
 .home_text {
-  color: white;
+  color: #7400B8;
   padding: 87px;
   line-height: 40px;
   font-size: 20px;
-
+  font-family: 'Montserrat', sans-serif;
 }
 body {
-  background-color: $sky-blue-crayola;
-  color: #fff;
+  background-image: #f7f7f7;
+  background-size: cover;
+  background-repeat:no-repeat;
+  color: #7400B8;
 }
 .banner {
   height: 400px;
@@ -35,7 +37,7 @@ body {
     padding: 198px;
     font-size: 66px;
     color: white;
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    text-shadow: 0 0 5px #7400B8, 0 0 5px #0000FF;
   }
 }
 .homeimg {
@@ -56,6 +58,7 @@ body {
     font-size: 30px;
     align-self: center;
     font-style: italic;
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
