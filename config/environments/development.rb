@@ -31,11 +31,11 @@ Rails.application.configure do
 
 
   # ActionMailer Settings
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
+    address:              '127.0.0.1',
+    port:                 1025,
     # domain:               'example.com',
     user_name:            'petrov.powerof@gmail.com',
     password:             'garden28#boi',
