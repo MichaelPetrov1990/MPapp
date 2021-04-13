@@ -1,5 +1,5 @@
 class ConfirmationsMailer < Devise::Mailer
-  default from: 'Alistair Upton CEO'
+  default from: 'Alistair Upton <petrov.powerof@gmail.com>'
 
   def confirmation_instructions(record, token, opts={})
    @token = token
