@@ -37,7 +37,7 @@ Rails.application.configure do
     address:              '127.0.0.1',
     port:                 1025,
     # domain:               'example.com',
-    user_name:            'petrov.powerof@gmail.com',
+    user_name:            "Alistair Upton <petrov.powerof@gmail.com>",
     password:             'garden28#boi',
     authentication:       'plain',
     enable_starttls_auto: true }
