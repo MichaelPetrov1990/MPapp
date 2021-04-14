@@ -1,6 +1,19 @@
 <div class="container">
   <% @count = @questionnaire.answers.count %>
-<h1> <%= @count == 0 ? "Hi" : "Great work" %> <%= current_user.first_name %>! <%= @count == 0 ? "Please start" : "Now continue" %>   to answer these questions below...</h1>
+  <% @half_way = (Question.all.count / 2) + 2 %>
+  <% @questions_remaining = @questionnaire.count_questions_remaining%>
+  
+<% if @count == 0 %>
+  <h1>Hi, <%= current_user.first_name %>, please answer the following questions </h1>
+<% elsif @questions_remaining > @half_way  %>
+  <h1>Your bespoke plan is being created, <%= @questions_remaining %> questions to go!</h1>
+<% elsif @questions_remaining == @half_way %>
+  <h1>Half way there! Keep going!</h1>
+<% elsif @questions_remaining < @half_way && @questions_remaining > 3 %>
+  <h1>Not long to go now!</h1>
+<% elsif @questions_remaining <= 3 %>
+  <h1>Last 3 questions. You did it!</h1>
+<% end %>
 <h2>Rate from 1 to 10</h2>
 <p><i>10 being the highest and 1 being the lowest</i></p>
 <%= @count %>/<%= Question.count %>
