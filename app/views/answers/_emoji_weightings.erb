@@ -1,18 +1,12 @@
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-angry"
-          aria-hidden="true"></i></span></button>
-    <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-frown"
-          aria-hidden="true"></i></span></button>
-    <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-meh"
-          aria-hidden="true"></i></span></button>
-    <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-smile"
-          aria-hidden="true"></i></span></button>
-    <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-laugh"
-          aria-hidden="true"></i></span></button>
-  </div>
-  <!-- <i class="far fa-angry"></i>
-  <i class="far fa-frown"></i>
-  <i class="far fa-meh"></i>
-  <i class="far fa-smile"></i>
-  <i class="far fa-laugh"></i> -->
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-angry" aria-hidden="true"></i></span>
+
+        </button>
+        <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-frown" aria-hidden="true"></i></span></button>
+        <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-meh" aria-hidden="true"></i></span></button>
+        <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-smile" aria-hidden="true"></i></span></button>
+        <button type="button" class="btn btn-secondary emoji"><span><i class="far fa-laugh" aria-hidden="true"></i></span></button>
+    </div>
+
+<%= link_to "<span><i class='far fa-angry' aria-hidden='true'></i></span>".html_safe, root_path, class: "btn btn-secondary emoji", data: {toggle:"tooltip", 'placement':"right"}, title:"Not Very Important" %>
