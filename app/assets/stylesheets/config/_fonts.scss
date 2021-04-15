@@ -1,9 +1,8 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;700&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Montserrat', sans-serif;
+$headers-font: 'Montserrat', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +13,7 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">');
+
