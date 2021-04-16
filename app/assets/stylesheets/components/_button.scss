@@ -2,6 +2,7 @@
   background-color: #7400B8;
   border-radius: 10px;
   color: white;
+  padding: 8px;
 }
 
 .btn-light:hover{
@@ -11,15 +12,15 @@
 }
 
 .btn-danger{
-  background-color: #5E60CE;
+  background-color: #6930CE;
   border-color: white;
   border-radius: 10px;
 }
 
 .btn-danger:hover{
   background-color: white;
-  border-color: #5E60CE;
-  color: #5E60CE;
+  border-color: #6930CE;
+  color: #6930CE;
 }
 
 .btn-primary{
@@ -41,4 +42,15 @@
 
 .purple-font:hover{
   color: #7400B8;
+}
+
+.btn-link{
+   display: block;
+   background: #7400B8;
+   color: white;
+   border: none !important;
+   outline:none;
+   padding: 10px 20px;
+   border-radius: 2px;
+   cursor: pointer;
 }
