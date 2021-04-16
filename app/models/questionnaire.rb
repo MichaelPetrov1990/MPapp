@@ -53,7 +53,7 @@ class Questionnaire < ApplicationRecord
    list = self.answers.pluck(:rating, :question_id, :id).sort.take(amount_integer) #gives us an array of arrays with each being rating and answer_id
    rating_and_answer_id = []
    list.each do |answer|
-    rating_and_answer_id.push({ label:"#{Question.find(answer[1]).sub_category}", id: answer[2] }) 
+    rating_and_answer_id.push(["#{Question.find(answer[1]).sub_category}", answer[2] ]) 
    end
    return rating_and_answer_id
   end

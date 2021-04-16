@@ -1,4 +1,7 @@
 class AnswersController < ApplicationController
+  before_action :assign_weights, only: [:show]
+  before_action :update_answer_params, only: [:update]
+
   def create
     @questionnaire = Questionnaire.find(questionnaire_params[:id])
     answer_text_params.each do |question_id, answer_rating|
@@ -13,19 +16,28 @@ class AnswersController < ApplicationController
   end
 
   def show
-    # add a new route for weightings
-    # create 1 new view: show.html.erb 
-      # with radio buttons with labels (not important -> essential/critical)
-    # update answer table with weighting integer
+    @answers = current_user.questionnaires.last.lowest_ranking_answers(3)
+    # with radio buttons with labels (not important -> essential/critical)
   end
 
   def update
-    # weighting_params.each do |question_id, importance|
-    #   @questionnaire.answers.find_by(question_id: question_id).update!(weight: importance)
-    # end    
+    @answer_ids.each_with_index do |id, index|
+      answer = Answer.find(id)
+      answer.update! weight: @values[index]
+    end
   end
   
   private
+
+  def update_answer_params
+    @answer_ids = params.keys.select {|x| /[\d+]/.match? x }
+    @values = params.require(@answer_ids)
+  end
+
+
+  def assign_weights
+    @weightings = [ ["Not very important",2],["Has some importance",4],["Important",6],["Very important",8],["Essential/Critical",10] ]
+  end
 
   def questionnaire_params
     params.require(:questionnaire).permit(:id)
