@@ -31,3 +31,13 @@
 // .form-link{
 //   color:#D54062;
 // }
+form fieldset {
+  display: flex;
+  .form-check {
+     padding: 2.25rem
+  }
+    .radio_buttons {
+      width: 17px;
+      height: 18px
+    }
+}
