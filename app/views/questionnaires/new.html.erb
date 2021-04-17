@@ -4,7 +4,7 @@
   <% @questions_remaining = @questionnaire.count_questions_remaining%>
   
 <% if @count == 0 %>
-  <h1>Hi, <%= current_user.first_name %>, please answer the following questions </h1>
+  <h1>Hi <%= current_user.first_name %>, please answer the following questions </h1>
 <% elsif @questions_remaining > @half_way  %>
   <h1>Your bespoke plan is being created, <%= @questions_remaining %> questions to go!</h1>
 <% elsif @questions_remaining == @half_way %>
@@ -21,11 +21,9 @@
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
     <% @questions.each do |question| %>
-      <p class="question col-md-5"><%= question.body %></p>
-      <div class="row">
+      <p class="question"><%= question.body %></p>
       <%= form.input "answer-#{question.id}", as: :radio_buttons, collection: 1..10, class:"form-control col-md-5" %>
-      <%#= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first %>
-      </div>
+      <%#= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first %>      
     <% end %>
     <%= f.submit "OK", class:"btn btn-link mt-3" %>
   <% end %>
