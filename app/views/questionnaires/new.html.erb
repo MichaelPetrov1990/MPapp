@@ -22,8 +22,9 @@
   <%= simple_fields_for :answers, multiple: true do |form| %>
     <% @questions.each do |question| %>
       <p class="question col-md-5"><%= question.body %></p>
-      <div class="form-row">
-      <%= form.input_field "answer-#{question.id}", collection: 1..10, class:"form-control col-md-5" %>
+      <div class="row">
+      <%= form.input "answer-#{question.id}", as: :radio_buttons, collection: 1..10, class:"form-control col-md-5" %>
+      <%#= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first %>
       </div>
     <% end %>
     <%= f.submit "OK", class:"btn btn-link mt-3" %>
