@@ -14,16 +14,16 @@
 <% elsif @questions_remaining <= 3 %>
   <h1>Last 3 questions. You did it!</h1>
 <% end %>
-<h2>Rate from 1 to 10</h2>
-<p><i>10 being the highest and 1 being the lowest</i></p>
 <%= @count %>/<%= Question.count %>
 <%= form_for @questionnaire, url: new_questionnaire_path(id: @questionnaire.id), method: "post" do | f| %>
   <%= f.hidden_field :id, value: @questionnaire.id %>
   <%= simple_fields_for :answers, multiple: true do |form| %>
     <% @questions.each do |question| %>
-      <p class="question"><%= question.body %></p>
+      <p class="question mt-5"><%= question.body %></p>
+        <div class="float-left"><%= question.min %></div>
+        <div class="float-right"><%= question.max %></div>
+        <br>
       <%= form.input "answer-#{question.id}", as: :radio_buttons, collection: 1..10, class:"form-control col-md-5" %>
-      <%#= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first %>      
     <% end %>
     <%= f.submit "OK", class:"btn btn-link mt-3" %>
   <% end %>

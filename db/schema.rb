@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_171416) do
 
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
+    t.text "min", null: false
+    t.text "max", null: false
     t.text "category", null: false
     t.text "sub_category", null: false
     t.bigint "questionnaire_id"

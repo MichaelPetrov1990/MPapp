@@ -2,6 +2,8 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
   def change
     create_table :questions do |t|
       t.text :body, null: false
+      t.text :min, null: false
+      t.text :max, null: false
       t.text :category, null: false
       t.text :sub_category, null: false
       t.references :questionnaire, null: true, foreign_key: true
