@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#about'
   get 'questionnaires', to: 'questionnaires#new', as: "new_questionnaire"
   post 'questionnaires', to: 'answers#create'
   get 'questions', to: 'questions#index'
