@@ -13,6 +13,13 @@ $aquamarine: #80FFDB;
 body h1 {
 }
 
+.form-control:focus {
+  color: #fff;
+  border-color: $purple;
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem $purple;
+}
+
 .home_text {
   color: #7400B8;
   padding: 87px;
