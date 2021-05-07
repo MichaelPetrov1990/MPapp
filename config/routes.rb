@@ -16,4 +16,10 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
   get 'faqs', to: 'pages#faqs'
+
+  # error handling
+  ## redirect to root
+  
+  get '*path' => 'pages#about', constraints: -> (req) { req.fullpath.start_with?('/users') }
+
  end
