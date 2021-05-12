@@ -6,32 +6,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <% if user_signed_in? %>
-            <li class="nav-item active">
-                <%#= link_to "Plan", plan_path, class: "nav-link nav-button" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Questionnaire", new_questionnaire_path, class: "nav-link nav-button" %>
-            </li>
-            <li class="nav-item dropdown">
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/assets/list-d1cdfbe8b8bbb18fd68986470718d02d9c5a37b7a341590e105148a023e8ee34.svg">
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <% if current_user.is_admin? %>
-                    <%= link_to "Admin: Users", admin_users_path, class: "dropdown-item" %>
-                    <%= link_to "Admin: Questions", admin_questions_path, class: "dropdown-item" %>
-                    <% end %>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-                </div>
-            </li>
-            <% else %>
-            <li class="nav-item">
-                <%= link_to "Already a Member?", new_user_session_path, class: "nav-link nav-button  font-weight-bolder" unless controller_name == 'sessions' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Register", new_user_registration_path, class: "nav-link nav-button font-weight-bolder" if controller_name == 'sessions' %>
-            </li>
-            <% end %>
-        </ul>
+    <%= render partial: "shared/dropdown" %>
     </div>
 </div>

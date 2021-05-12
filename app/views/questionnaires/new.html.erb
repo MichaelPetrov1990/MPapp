@@ -2,7 +2,7 @@
   <% @count = @questionnaire.answers.count %>
   <% @half_way = (Question.all.count / 2) + 2 %>
   <% @questions_remaining = @questionnaire.count_questions_remaining%>
-  
+  <div class="my-5"></div>
 <% if @count == 0 %>
   <h1>Hi <%= current_user.first_name %>, please answer the following questions </h1>
 <% elsif @questions_remaining > @half_way  %>

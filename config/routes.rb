@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
   get 'faqs', to: 'pages#faqs'
-
+  get 'user', to: 'users#index'
+  
   # error handling
   ## redirect to root
   
