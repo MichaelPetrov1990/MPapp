@@ -13,6 +13,12 @@ $aquamarine: #80FFDB;
 
 body h1 {}
 
+.alert-info {
+    color: $purple;
+    background-color: #fff;
+    border-color: $purple;
+}
+
 .form-control:focus {
     color: $purple;
     border-color: $purple;
