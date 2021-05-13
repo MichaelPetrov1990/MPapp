@@ -1,0 +1,60 @@
+txtblk='\[\e[0;30m\]' # Black
+txtred='\[\e[0;31m\]' # Red
+txtgrn='\[\e[0;32m\]' # Green
+txtylw='\[\e[0;33m\]' # Yellow
+txtblu='\[\e[0;34m\]' # Blue
+txtpur='\[\e[0;35m\]' # Purple
+txtcyn='\[\e[0;36m\]' # Cyan
+txtwht='\[\e[0;37m\]' # White
+txtrst='\[\e[0m\]'   # Text Reset
+
+HISTFILESIZE=9000
+export CLICOLOR=1
+export LSCOLORS=fxexcxdxbxegedabagacad
+alias l='ls -al'
+alias b='cd ..'
+alias h='history'
+alias rdb="rails runner 'Apartment.destroy_all'; kill $(ps aux | grep -E 'rails|sidekiq' | grep -v grep | awk '{print $2}'); rake db:drop; rake db:create; rake db:migrate; rake db:prep_database; fman;"
+alias gst="git status"
+alias gidd="git diff"
+alias glog="git log --pretty=oneline"
+alias gsa="git stash save"
+alias gsl="git stash list"
+alias gsp="git stash pop"
+alias fman="foreman start -f Procfile.dev"
+alias gcm="git commit -m "
+
+function branch
+{
+  git status 2> /dev/null | ruby ~/Documents/scripts/branch.rb
+}
+
+PS1="$txtylw\w$txtgrn\$(branch)$txtwht ∴$txtrst"
+
+export USERNAME=MOOKBOOK13
+export username=MOOKBOOK13
+export PATH="$HOME/.npm-packages/bin:$PATH"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin/:$PATH
+export AWS_ACCESS_KEY_ID=AKIAQZNRKMDJILYN5R6W
+export AWS_SECRET_ACCESS_KEY=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
+export CLOUDFRONT_SUBDOMAIN=dioa4bjti2spx.cloudfront.net
+
+[[ -s /Users/MOOKBOOK13/.nvm/nvm.sh ]] && . /Users/MOOKBOOK13/.nvm/nvm.sh # This loads NVM
+
+source ~/.profile
+
+# export PATH="/usr/local/bin:usr/local/sbin:~/bin:$PATH"
+
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
+export PATH="/usr/local/opt/qt/bin:$PATH"
+
+[[ -f /Users/MOOKBOOK13/.sentinel/current/bin/sentinel ]] && eval "$(/Users/MOOKBOOK13/.sentinel/current/bin/sentinel init -)"
+
+export RAILS_ENV=development
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+alias pr="pry-remote"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export HOMEBREW_GITHUB_API_TOKEN=71ede8e454750a04be4b53d3a38c44454ca65d0e
